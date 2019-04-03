@@ -1,0 +1,30 @@
+version: '2.1'
+
+services:
+  image-process:
+    image: "image-process:0.1"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - 8080:8080
+    environment:
+      MYSQL_URL: 192.168.3.69:3306
+      DB_USERNAME: team_run
+      DB_PASSWORD: teamrun@20180525
+      DB_NAME : team_run
+      FILE_LOC: /static/images
+    volumes:
+      - image:/static/images
+  # team_run_backend:
+  #   image: team_run_backend:0.2
+  #   # build: .
+  #   environment:
+  #     NODE_ENV: production
+  #     MYSQL_URL: 192.168.3.69
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - image:/static/images
+volumes:
+  image:

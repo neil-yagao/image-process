@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  golang-workspace:
+    image: golang-workspace
+    build: .
+    ports:
+      - 8000:8000
